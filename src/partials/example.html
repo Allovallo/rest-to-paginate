@@ -1,1 +1,26 @@
-<h1>Це наш сайт!</h1>
+<form class="form-inline search-form js-search-form">
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="searchQuery" class="sr-only">Що шукаємо?</label>
+    <input
+      type="text"
+      class="form-control"
+      name="query"
+      id="searchQuery"
+      placeholder="Що шукаємо?"
+      autocomplete="off"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Шукати</button>
+</form>
+
+<ul class="articles js-articles-container"></ul>
+
+<button type="button" class="btn btn-primary button" data-action="load-more">
+  <span
+    class="spinner-border spinner-border-sm spinner is-hidden"
+    role="status"
+    aria-hidden="true"
+  ></span>
+
+  <span class="label">Показати ще</span>
+</button>
