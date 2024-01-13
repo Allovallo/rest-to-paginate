@@ -12,16 +12,13 @@ const newsApiService = new NewsApiService();
 refs.searchForm.addEventListener('submit', onSearch);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
 
-let searchQuery = '';
-
 function onSearch(e) {
   e.preventDefault();
 
-  searchQuery = e.currentTarget.elements.query.value;
-
-  newsApiService.fetchArticles(searchQuery);
+  newsApiService.query = e.currentTarget.elements.query.value;
+  newsApiService.fetchArticles();
 }
 
 function onLoadMore() {
-  newsApiService.fetchArticles(searchQuery);
+  newsApiService.fetchArticles();
 }
