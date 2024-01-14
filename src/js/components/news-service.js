@@ -1,3 +1,6 @@
+const API_KEY = '265464eae7114d61af598e1a1efe990a';
+const BASE_URL = 'https://newsapi.org/v2';
+
 export default class NewsApiService {
   constructor() {
     this.searchQuery = '';
@@ -7,18 +10,16 @@ export default class NewsApiService {
   fetchArticles() {
     const options = {
       headers: {
-        Authorization: '265464eae7114d61af598e1a1efe990a',
+        Authorization: API_KEY,
       },
     };
-
-    const url = `https://newsapi.org/v2/everything?q=${this.searchQuery}&language=en&pageSize=5&page=${this.page}`;
+    const url = `${BASE_URL}/everything?q=${this.searchQuery}&language=en&pageSize=5&page=${this.page}`;
 
     return fetch(url, options)
-      .then(r => r.json())
-      .then(data => {
+      .then(response => response.json())
+      .then(({ articles }) => {
         this.incrementPage();
-        console.log(data.articles);
-        return data.articles;
+        return articles;
       });
   }
 
