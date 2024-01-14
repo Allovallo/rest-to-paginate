@@ -16,6 +16,7 @@ function onSearch(e) {
   e.preventDefault();
 
   newsApiService.query = e.currentTarget.elements.query.value;
+  newsApiService.resetPage();
   newsApiService.fetchArticles();
 }
 
