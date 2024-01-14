@@ -5,7 +5,6 @@ export default class NewsApiService {
   }
 
   fetchArticles() {
-    console.log('Перед запитом: ', this);
     const options = {
       headers: {
         Authorization: '265464eae7114d61af598e1a1efe990a',
@@ -14,11 +13,12 @@ export default class NewsApiService {
 
     const url = `https://newsapi.org/v2/everything?q=${this.searchQuery}&language=en&pageSize=5&page=${this.page}`;
 
-    fetch(url, options)
+    return fetch(url, options)
       .then(r => r.json())
       .then(data => {
         this.incrementPage();
-        console.log('Після запиту', this);
+        console.log(data.articles);
+        return data.articles;
       });
   }
 

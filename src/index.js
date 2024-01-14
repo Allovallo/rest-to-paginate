@@ -17,9 +17,9 @@ function onSearch(e) {
 
   newsApiService.query = e.currentTarget.elements.query.value;
   newsApiService.resetPage();
-  newsApiService.fetchArticles();
+  newsApiService.fetchArticles().then(articles => console.log(articles));
 }
 
 function onLoadMore() {
-  newsApiService.fetchArticles();
+  newsApiService.fetchArticles().then(articles => console.log(articles));
 }
